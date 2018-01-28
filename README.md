@@ -3,8 +3,10 @@
 
 # Installation:
 
-# 1 - First Install:
-
+# 1 - First:
+   
+   Install:
+   
    * [Laravel](https://laravel.com/)
    * [BackPack BASE](https://laravel-backpack.readme.io/docs/install-on-laravel-55#section-2-backpackbase)
    * [BackPack CRUD](https://laravel-backpack.readme.io/docs/install-on-laravel-55#section-3-backpackcrud)
@@ -15,5 +17,4 @@
 
 # Usage
 
-   Just Put these folder in resources\views\vendor And Have fun :).
-
+   Just Put these folders in resources\views\vendor And Have fun :).
