@@ -1,27 +1,27 @@
 @extends('backpack::layout')
 
 @section('header')
-    <section class="content-header">
-      <h1>
-        {{ trans('backpack::base.dashboard') }}<small>{{ trans('backpack::base.first_page_you_see') }}</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="{{ backpack_url() }}">{{ config('backpack.base.project_name') }}</a></li>
-        <li class="active">{{ trans('backpack::base.dashboard') }}</li>
-      </ol>
-    </section>
+    <ul class="page-breadcrumb breadcrumb">
+        <li>
+            <a href="{{ backpack_url() }}">{{ config('backpack.base.project_name') }}</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span class="active">{{ trans('backpack::base.dashboard') }}</span>
+        </li>
+    </ul>
 @endsection
 
-
 @section('content')
-    <div class="row">
-        <div class="col-md-12">
-            <div class="box box-default">
-                <div class="box-header with-border">
-                    <div class="box-title">{{ trans('backpack::base.login_status') }}</div>
-                </div>
-
-                <div class="box-body">{{ trans('backpack::base.logged_in') }}</div>
+    <div class="portlet box blue">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="fa fa-database"></i> {{ trans('backpack::base.login_status') }}
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="tab-content">
+                {{ trans('backpack::base.logged_in') }}
             </div>
         </div>
     </div>

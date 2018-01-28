@@ -9,7 +9,7 @@
 <!-- BEGIN HEAD -->
 <head>
     <meta charset="utf-8">
-    <title>{{ isset($title) ? $title.' :: '.config('backpack.base.project_name').' Admin' : config('backpack.base.project_name').' إدارة' }}</title>
+    <title>{{ isset($title) ? $title.' :: '.config('backpack.base.project_name').' الإدارة ' : config('backpack.base.project_name').' إدارة' }}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,6 +17,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
     @yield ('before_styles')
+
     {{--BEGIN GLOBAL MANDATORY STYLES--}}
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet"
           type="text/css"/>
@@ -30,7 +31,7 @@
           type="text/css"/>
     <link href="{{ asset('vendor/backpack/pnotify/pnotify.custom.min.css') }}" rel="stylesheet">
     {{--END GLOBAL MANDATORY STYLES--}}
-    @yield('css')
+
     {{--END PAGE LEVEL PLUGINS--}}
 
     {{--BEGIN PAGE LEVEL PLUGINS--}}
@@ -40,104 +41,72 @@
     {{--END THEME GLOBAL STYLES--}}
 
     {{--BEGIN THEME LAYOUT STYLES--}}
-    <link href="{{ asset('assets/layouts/layout4/css/layout-rtl.min.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ asset('assets/layouts/layout4/css/themes/default-rtl.min.css') }}" rel="stylesheet" type="text/css"
-          id="style_color"/>
-    <link href="{{ asset('assets/layouts/layout4/css/custom-rtl.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/pages/css/login-rtl.min.css') }}" rel="stylesheet" type="text/css"/>
     {{--END THEME LAYOUT STYLES--}}
 
-@yield('after_styles')
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}"/>
 
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    @yield('css')
+    @yield('after_styles')
 </head>
+<!-- END HEAD -->
 
-<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
-
-<div class="page-header navbar navbar-fixed-top">
-    <div class="page-header-inner ">
-        <div class="page-logo">
-            <a href="/">
-                <img src="{{ asset('assets/layouts/layout4/img/logo-big.png') }}" alt="logo" class="logo-default"/>
-            </a>
-            <div class="menu-toggler sidebar-toggler ">
-                <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
-            </div>
-        </div>
-
-        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
-           data-target=".navbar-collapse"> </a>
-        <div class="page-top">
-            @include('backpack::inc.menu')
-        </div>
-    </div>
+<body class="login">
+<!-- BEGIN LOGO -->
+<div class="logo">
+    <a href="{{ url('/') }}">
+        <img src="{{ asset('assets/pages/img/logo-big.png') }}" alt=""/>
+    </a>
 </div>
+<!-- END LOGO -->
+<!-- BEGIN LOGIN -->
+<div class="content">
 
-<div class="clearfix"></div>
-
-<div class="page-container">
-    <div class="page-sidebar-wrapper">
-        @include('backpack::inc.sidebar')
-    </div>
-
-    <div class="page-content-wrapper">
-        <div class="page-content">
-            @yield('header')
-            @yield('content')
-        </div>
-    </div>
+    @yield('content')
 </div>
-<div class="page-footer">
-    <div class="page-footer-inner">
-        @if (config('backpack.base.show_powered_by'))
-            {{ trans('backpack::base.powered_by') }}
-            <a target="_blank" href="http://backpackforlaravel.com?ref=panel_footer_link">
-                Backpack for Laravel
-            </a>
-        @endif
-        {{ trans('backpack::base.handcrafted_by') }}
-        <a target="_blank"
-           href="{{ config('backpack.base.developer_link') }}">{{ config('backpack.base.developer_name') }}
-        </a>.
-    </div>
-    <div class="scroll-to-top">
-        <i class="icon-arrow-up"></i>
-    </div>
+<div class="copyright">
+    {{ trans('backpack::base.handcrafted_by') }}
+    <a target="_blank"
+       href="{{ config('backpack.base.developer_link') }}">{{ config('backpack.base.developer_name') }}
+    </a>.
 </div>
-
-@yield('before_scripts')
-
 <!--[if lt IE 9]>
-<script src="{{ asset('assets/global/plugins/respond.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/global/plugins/excanvas.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('assets/global/plugins/ie8.fix.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/respond.min.js') }}"></script>
+<script src="{{ asset('assets/global/plugins/excanvas.min.js') }}"></script>
+<script src="{{ asset('assets/global/plugins/ie8.fix.min.js') }}"></script>
 <![endif]-->
 <!-- BEGIN CORE PLUGINS -->
-{{--<script>window.jQuery || document.write('<script src="{{ asset('vendor/adminlte') }}/plugins/jQuery/jQuery-2.2.3.min.js"><\/script>')</script>--}}
-<script src="{{ asset('assets/global/plugins/jquery.min.js')}}" type="text/javascript"></script>
-<script src="{{ asset('assets/global/plugins/bootstrap/js/bootstrap.min.js')}}" type="text/javascript"></script>
-<script src="{{ asset('assets/global/plugins/js.cookie.min.js')}}" type="text/javascript"></script>
-<script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}"
+<script src="{{ asset('assets/global/plugins/jquery.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/js.cookie.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js') }}"
         type="text/javascript"></script>
-<script src="{{ asset('assets/global/plugins/jquery.blockui.min.js')}}" type="text/javascript"></script>
-<script src="{{ asset('assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}"
+<script src="{{ asset('assets/global/plugins/jquery.blockui.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js') }}"
         type="text/javascript"></script>
-<script src="/vendor/adminlte/plugins/pace/pace.min.js')}}"></script>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-
+<script src="{{ asset('assets/global/plugins/jquery-validation/js/jquery.validate.min.js') }}"
+        type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/jquery-validation/js/additional-methods.min.js') }}"
+        type="text/javascript"></script>
+<script src="{{ asset('assets/global/plugins/select2/js/select2.full.min.js') }}" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
-<script src="{{ asset('assets/global/scripts/app.min.js')}}" type="text/javascript"></script>
+<script src="{{ asset('assets/global/scripts/app.min.js') }}" type="text/javascript"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-
+<script src="{{ asset('assets/pages/scripts/login.min.js') }}" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
-<script src="{{ asset('assets/layouts/layout4/scripts/layout.min.js')}}" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
+<script>
+    $(document).ready(function () {
+        $('#clickmewow').click(function () {
+            $('#radio1003').attr('checked', 'checked');
+        });
+    })
+</script>
 
 <!-- page script -->
 <script type="text/javascript">
@@ -195,6 +164,5 @@
 @yield('after_scripts')
 
 @yield('js')
-
 </body>
 </html>
